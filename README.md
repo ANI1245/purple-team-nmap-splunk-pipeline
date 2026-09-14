@@ -1,13 +1,13 @@
 # Purple Team Automation: Nmap Attack Surface & Splunk Cloud SIEM Pipeline
 
 ## Executive Summary
-This project demonstrates an end-to-end Purple Team workflow combining offensive reconnaissance with SIEM log ingestion and analysis. An automated network scan was executed using **Nmap** on Kali Linux, structured as XML data, and ingested into **Splunk Cloud** to extract threat surface intelligence, exposed services, and potential attack vectors.
+This project demonstrates a Purple Team workflow combining offensive reconnaissance with SIEM log ingestion and analysis. A network scan was run using **Nmap** on Kali Linux, exported as structured XML, and ingested into **Splunk Cloud** to extract exposed services and potential attack vectors using custom SPL field extraction.
 
 ## Technical Architecture
 * **Offensive Environment:** Kali Linux (Host / Container)
 * **Target Domain:** `scanme.nmap.org` (Authorized Testing Target)
-* **Ingestion Middleware:** Custom Python HTTP Server Transfer Pipeline
-* **SIEM Platform:** Splunk Cloud Engine
+* **Data Transfer:** Python's built-in HTTP server (`http.server`)
+* **SIEM Platform:** Splunk Cloud
 * **Query Language:** Splunk Processing Language (SPL) & Custom Regex Field Extractions
 
 ---
@@ -16,7 +16,11 @@ This project demonstrates an end-to-end Purple Team workflow combining offensive
 
 ## 1. Attack Execution & XML Structured Output
 Conducted target service version scanning using Nmap with raw XML output generation for structured SIEM parsing:
+
 ```bash
 nmap -sV -Pn scanme.nmap.org -oX nmap_scan_results.xml
+```
 
-https://github.com/ANI1245/purple-team-nmap-splunk-pipeline/blob/9fc4fd401a3a61c6d4d21bde3977c557e467dcda/Screenshot%202026-09-14%20133422.png
+## 2. Splunk Ingestion Result
+
+![Splunk field extraction output](Screenshot%202026-09-14%20133422.png)
