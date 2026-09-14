@@ -18,3 +18,5 @@ This project demonstrates an end-to-end Purple Team workflow combining offensive
 Conducted target service version scanning using Nmap with raw XML output generation for structured SIEM parsing:
 ```bash
 nmap -sV -Pn scanme.nmap.org -oX nmap_scan_results.xml
+
+https://github.com/ANI1245/purple-team-nmap-splunk-pipeline/blob/9fc4fd401a3a61c6d4d21bde3977c557e467dcda/Screenshot%202026-09-14%20133422.png
